@@ -1,0 +1,40 @@
+var startCart = Cesium.Cartographic.fromDegrees(startLon, startLat, startElv);
+var start = ellipsoid.cartographicToCartesian(startCart);
+
+var endCart = Cesium.Cartographic.fromDegrees(endLon, endLat, endElv);
+var end = ellipsoid.cartographicToCartesian(endCart);
+
+var ray = new Cesium.Ray(start, end);
+
+
+tileset.readyPromise.then(function() {
+    // Wait for the tileset to load
+    processTile(tileset.root);
+});
+
+function processTile(tile) {
+    // Perform some action on the tile
+    //console.log(tile.boundingSphere);
+
+  
+  var result = new Cesium.Cartesian3();
+  var intersectionStatus = Cesium.IntersectionTests.raySphere(ray, tile.boundingSphere, result);
+
+  console.log(intersectionStatus);
+  if (intersectionStatus > 0) {
+      console.log("The ray intersects the sphere.");
+      console.log("Intersection point: ", result);
+  } else if (intersectionStatus < 0) {
+      console.log("The ray does not intersect the sphere.");
+  } else {
+      console.log("The ray origin is inside the sphere.");
+  }
+  
+  
+    // Traverse the children of the tile recursively
+    if (tile.children) {
+        for (var i = 0; i < tile.children.length; i++) {
+            processTile(tile.children[i]);
+        }
+    }
+}
