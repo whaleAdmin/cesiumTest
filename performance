@@ -25,3 +25,17 @@ Optimize queries: Ebean generates SQL queries based on the criteria you provide.
 Use indexing: Indexing can improve database performance by speeding up data retrieval. You can create indexes on columns that are frequently queried to improve performance.
 
 By following these tips
+
+
+
+
+
+Evaluating the performance of SQL queries can be done by measuring the time it takes for the query to execute and return the result. There are various tools and techniques available for measuring query performance.
+
+One common technique for evaluating SQL query performance is to use the EXPLAIN command. This command can be used to analyze the execution plan of a SQL query and identify potential performance issues. The output of the EXPLAIN command shows the steps involved in executing the query, including the tables involved, the indexes used, and the order in which the data is accessed. By analyzing this output, you can identify potential performance bottlenecks and optimize the query to improve performance.
+
+Another technique for evaluating SQL query performance is to use profiling tools. Profiling tools can be used to monitor the execution of a SQL query and identify areas where the query is spending the most time. By identifying these areas, you can optimize the query to improve performance.
+
+Finally, it's important to benchmark the performance of SQL queries over time to ensure that changes to the database schema or query optimization techniques are improving performance. By benchmarking performance, you can identify trends and patterns in query performance and ensure that your database is optimized for the needs of your application.
+
+In summary, evaluating SQL query performance involves analyzing the execution plan of the query, using profiling tools to monitor query execution, and benchmarking query performance over time. By optimizing SQL queries, you can ensure that your database is performant and responsive.
